@@ -1,9 +1,7 @@
-**Ant Colony Optimization (ACO)-Based PID Controller Tuning for a Time-Delayed System**
+# Ant Colony Optimization (ACO)-Based PID Controller Tuning for a Time-Delayed System
 
 **Note:** This project was my Bachelor thesis during my studies at Qazvin Azad University under the supervision of [Prof. Hamid Qadiri](https://scholar.google.com/citations?user=NFe6cnoAAAAJ&hl=en).
 
-**Short Description:**  
-This project employs Ant Colony Optimization to tune a PID controller for a time-delayed system, minimizing the ITAE and significantly improving system response.
 
 ---
 
