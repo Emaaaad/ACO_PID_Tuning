@@ -16,25 +16,33 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 1. **Plant Transfer Function**  
    We begin with a simple second-order transfer function:
    
-   $$ G(s) = \frac{1}{s^2 + 2s + 3} $$
+   $$
+   G(s) = \frac{1}{s^2 + 2s + 3}
+   $$
    
    This system is stable but exhibits transient behavior governed by its poles.
 
 2. **Time Delay**  
    A time delay is introduced, represented by the exponential term:
    
-   $$ e^{-s} $$
+   $$
+   e^{-s}
+   $$
    
    Because directly simulating a pure delay is challenging, a first-order Padé approximation is used:
    
-   $$ e^{-s} \approx \frac{1 - \frac{s}{2}}{1 + \frac{s}{2}} $$
+   $$
+   e^{-s} \approx \frac{1 - \frac{s}{2}}{1 + \frac{s}{2}}
+   $$
    
    This rational approximation allows MATLAB to simulate the system with delay.
 
 3. **Closed-Loop Feedback**  
    The open-loop system with delay is:
    
-   $$ G_{\text{delay}}(s) = G(s) \cdot e^{-s} $$
+   $$
+   G_{\text{delay}}(s) = G(s) \cdot e^{-s}
+   $$
    
    With unity feedback, the closed-loop transfer function is obtained.
 
@@ -45,14 +53,18 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 1. **PID Controller Structure**  
    The PID controller is defined as:
    
-   $$ G_c(s) = K_p + \frac{K_i}{s} + K_d \, s $$
+   $$
+   G_c(s) = K_p + \frac{K_i}{s} + K_d \, s
+   $$
    
    where \( K_p \), \( K_i \), and \( K_d \) are the proportional, integral, and derivative gains, respectively.
 
 2. **ITAE (Integral of Time-weighted Absolute Error)**  
    The ITAE criterion is used to evaluate the closed-loop performance:
    
-   $$ \text{ITAE} = \int_{0}^{T} t \, \left| e(t) \right| \, dt $$
+   $$
+   \text{ITAE} = \int_{0}^{T} t \, \left| e(t) \right| \, dt
+   $$
    
    where \( e(t) \) is the error between the reference input and the system output. Minimizing ITAE typically results in faster settling times and reduced overshoot.
 
