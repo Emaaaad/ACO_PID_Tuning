@@ -5,7 +5,7 @@
 ---
 
 ## **1. Introduction**
-This project focuses on designing and tuning a Proportional–Integral–Derivative (PID) controller using Ant Colony Optimization (ACO) for a time-delayed system. The main objective is to minimize the Integral of Time-weighted Absolute Error (ITAE), which helps achieve a desirable transient response (reduced overshoot, faster settling time, and minimal steady-state error).
+This project focuses on designing and tuning a Proportional–Integral–Derivative (PID) controller using Ant Colony Optimization (ACO) for a time-delayed system. The main objective is to minimize the Integral of Time-weighted Absolute Error (ITAE), achieving a desirable transient response with reduced overshoot, faster settling time, and minimal steady-state error.
 
 Time delays and complex system dynamics can complicate PID tuning. Traditional methods may fall short in such cases. ACO provides a robust, stochastic optimization approach to iteratively refine PID gains and achieve superior closed-loop performance.
 
@@ -15,19 +15,27 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 1. **Plant Transfer Function**  
    We begin with a simple second-order transfer function:
-   $$ G(s) = \frac{1}{s^2 + 2s + 3}. $$
+   
+   $$ G(s) = \frac{1}{s^2 + 2s + 3} $$
+   
    This system is stable but exhibits transient behavior governed by its poles.
 
 2. **Time Delay**  
    A time delay is introduced, represented by the exponential term:
-   $$ e^{-s}. $$
-   Because directly simulating a pure delay is challenging, we use a first-order Padé approximation:
-   $$ e^{-s} \approx \frac{1 - \frac{s}{2}}{1 + \frac{s}{2}}. $$
+   
+   $$ e^{-s} $$
+   
+   Because directly simulating a pure delay is challenging, a first-order Padé approximation is used:
+   
+   $$ e^{-s} \approx \frac{1 - \frac{s}{2}}{1 + \frac{s}{2}} $$
+   
    This rational approximation allows MATLAB to simulate the system with delay.
 
 3. **Closed-Loop Feedback**  
    The open-loop system with delay is:
-   $$ G_{\text{delay}}(s) = G(s) \cdot e^{-s}. $$
+   
+   $$ G_{\text{delay}}(s) = G(s) \cdot e^{-s} $$
+   
    With unity feedback, the closed-loop transfer function is obtained.
 
 ---
@@ -36,12 +44,16 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 1. **PID Controller Structure**  
    The PID controller is defined as:
-   $$ G_c(s) = K_p + \frac{K_i}{s} + K_d \, s, $$
+   
+   $$ G_c(s) = K_p + \frac{K_i}{s} + K_d \, s $$
+   
    where \( K_p \), \( K_i \), and \( K_d \) are the proportional, integral, and derivative gains, respectively.
 
 2. **ITAE (Integral of Time-weighted Absolute Error)**  
    The ITAE criterion is used to evaluate the closed-loop performance:
-   $$ \text{ITAE} = \int_{0}^{T} t \, | e(t) | \, dt, $$
+   
+   $$ \text{ITAE} = \int_{0}^{T} t \, \left| e(t) \right| \, dt $$
+   
    where \( e(t) \) is the error between the reference input and the system output. Minimizing ITAE typically results in faster settling times and reduced overshoot.
 
 ---
@@ -53,13 +65,13 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 2. **ACO Parameters**  
    - **Number of Ants (N):** Determines how many candidate solutions are sampled per iteration.  
-   - **Pheromone Decay Factor (\(\phi\)):** Controls how quickly pheromone trails evaporate.  
+   - **Pheromone Decay Factor (\( \phi \)):** Controls how quickly pheromone trails evaporate.  
    - **Scaling Factor (Sca_fact):** Scales the pheromone update based on the best solution in each iteration.  
-   - **Search Space (a, b, h\_size):** Defines the range of possible PID gains (from 0 to 1000 in steps of 5).
+   - **Search Space (a, b, h_size):** Defines the range of possible PID gains (from 0 to 1000 in steps of 5).
 
 3. **ACO Main Loop**  
-   - **Initialization:** Discretize the PID gains \( K_p \), \( K_i \), \( K_d \) into candidate values, each starting with a uniform pheromone level.
-   - **Probability Calculation:** For each candidate value, calculate the selection probability proportional to its pheromone level.
+   - **Initialization:** Discretize the PID gains \( K_p \), \( K_i \), and \( K_d \) into candidate values, each starting with a uniform pheromone level.
+   - **Probability Calculation:** For each candidate value, compute the selection probability proportional to its pheromone level.
    - **Roulette-Wheel Selection:** Each ant selects candidate gains based on the computed probability distribution.
    - **Objective Function Evaluation:** Simulate the closed-loop system using the selected PID gains and compute the ITAE.
    - **Pheromone Update:**  
@@ -78,11 +90,11 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 2. **ACO Initialization:**  
    - Set the number of ants, pheromone decay factor, scaling factor, and number of iterations.  
-   - Define the search space for \( K_p \), \( K_i \), \( K_d \).  
+   - Define the search space for \( K_p \), \( K_i \), and \( K_d \).  
    - Initialize the pheromone matrices.
 
 3. **Main ACO Loop:**  
-   - Compute the selection probabilities for each candidate value.
+   - Compute selection probabilities for each candidate value.
    - Use roulette-wheel selection to choose PID gains for each ant.
    - Simulate the system and compute the ITAE for each candidate solution.
    - Update the pheromones and track the best solution.
@@ -96,20 +108,26 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ## **6. Results and Figures**
 
+<div align="center">
+
 ### **Figure 1: Step Response of Original System with Delay**
-![Step Response of Original System with Delay](https://github.com/Emaaaad/ACO_PID_Tuning/blob/main/Pictures/Figure1.jpg)
+<img src="https://github.com/Emaaaad/ACO_PID_Tuning/blob/main/Pictures/Figure1.jpg" alt="Step Response of Original System with Delay" width="70%">
+
 1. **Analysis:**  
    - Displays the transient behavior of the original time-delayed system without PID control.
-   - Shows overshoot and undershoot, highlighting the adverse impact of delay on system performance.
+   - Shows overshoot and undershoot, highlighting the adverse impact of delay on performance.
    - Emphasizes the need for a robust PID controller.
 
 2. **Interpretation:**  
    - The natural system suffers from poor damping, motivating the application of PID tuning to improve performance.
 
----
+</div>
+
+<div align="center">
 
 ### **Figure 2: Step Response with Optimized PID Controller**
-![Step Response with Optimized PID Controller](https://github.com/Emaaaad/ACO_PID_Tuning/blob/main/Pictures/Figure2.jpg)
+<img src="https://github.com/Emaaaad/ACO_PID_Tuning/blob/main/Pictures/Figure2.jpg" alt="Step Response with Optimized PID Controller" width="70%">
+
 1. **Analysis:**  
    - Represents the step response after applying the optimized PID gains from the ACO algorithm.
    - Exhibits faster settling time and reduced oscillations compared to the original system.
@@ -118,10 +136,13 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 2. **Interpretation:**  
    - The optimized controller enables the system to track the desired reference input effectively with an improved transient response.
 
----
+</div>
+
+<div align="center">
 
 ### **Figure 3: ITAE with Each Iteration**
-![ITAE with Each Iteration](https://github.com/Emaaaad/ACO_PID_Tuning/blob/main/Pictures/Figure3.jpg)
+<img src="https://github.com/Emaaaad/ACO_PID_Tuning/blob/main/Pictures/Figure3.jpg" alt="ITAE with Each Iteration" width="70%">
+
 1. **Analysis:**  
    - Illustrates the evolution of the ITAE cost function across the ACO iterations.
    - A high initial ITAE value decreases steadily as the algorithm converges toward optimal PID gains.
@@ -129,6 +150,8 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 2. **Interpretation:**  
    - The decreasing ITAE trend confirms the effectiveness of the ACO method in optimizing the PID controller.
+
+</div>
 
 ---
 
@@ -165,8 +188,8 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
      3. **Figure 3:** ITAE vs. Iterations.
 
 3. **Modifying Parameters:**  
-   - Experiment with different ACO parameters (number of ants, pheromone decay, scaling factor, iterations) to see their impact on performance.
-   - Adjust the search space parameters (lower bound, upper bound, step size) to refine the PID tuning.
+   - Experiment with different ACO parameters (number of ants, pheromone decay, scaling factor, iterations) to observe their impact on performance.
+   - Adjust the search space parameters (lower bound, upper bound, step size) to refine PID tuning.
    - Consider exploring alternative objective functions or constraints based on your specific application.
 
 ---
