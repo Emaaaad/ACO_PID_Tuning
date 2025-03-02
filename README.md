@@ -128,12 +128,12 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
        width="70%">
 </div>
 
-**Analysis (Left-Aligned):**  
+**Analysis:**  
 - Displays the transient behavior of the original time-delayed system without PID control.  
 - Shows overshoot and undershoot, highlighting the adverse impact of delay on performance.  
 - Emphasizes the need for a robust PID controller.
 
-**Interpretation (Left-Aligned):**  
+**Interpretation:**  
 - The natural system suffers from poor damping, motivating the application of PID tuning to improve performance.
 
 ---
@@ -146,12 +146,12 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
        width="70%">
 </div>
 
-**Analysis (Left-Aligned):**  
+**Analysis:**  
 - Represents the step response after applying the optimized PID gains from the ACO algorithm.  
 - Exhibits faster settling time and reduced oscillations compared to the original system.  
 - Shows a minor overshoot, but overall performance is significantly enhanced.
 
-**Interpretation (Left-Aligned):**  
+**Interpretation:**  
 - The optimized controller enables the system to track the desired reference input effectively with an improved transient response.
 
 ---
