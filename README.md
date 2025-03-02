@@ -16,9 +16,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 1. **Plant Transfer Function**  
    We begin with a simple second-order transfer function:
 
-   $$
-   G(s) = \frac{1}{s^2 + 2s + 3}
-   $$
+![G(s) = 1/(s^2 + 2s + 3)](https://latex.codecogs.com/png.latex?\dpi{110}G(s)=\frac{1}{s^2+2s+3})
 
    This system is stable but exhibits transient behavior governed by its poles.
 
@@ -164,12 +162,12 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
        width="70%">
 </div>
 
-**Analysis (Left-Aligned):**  
+**Analysis:**  
 - Illustrates the evolution of the ITAE cost function across the ACO iterations.  
 - A high initial ITAE value decreases steadily as the algorithm converges toward optimal PID gains.  
 - The plateau at the end indicates that near-optimal gains have been achieved.
 
-**Interpretation (Left-Aligned):**  
+**Interpretation:***
 - The decreasing ITAE trend confirms the effectiveness of the ACO method in optimizing the PID controller.
 
 ---
