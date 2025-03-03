@@ -16,31 +16,33 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 1. **Plant Transfer Function**  
    We begin with a simple second-order transfer function:
 
-![G(s) = 1/(s^2 + 2s + 3)](https://latex.codecogs.com/png.latex?\dpi{110}G(s)=\frac{1}{s^2+2s+3})
+<div align="center">
+  <img src="https://latex.codecogs.com/png.latex?\dpi{150}G(s)=\frac{1}{s^2+2s+3}&bg=FFFFFF" alt="G(s) formula"/>
+</div>
 
    This system is stable but exhibits transient behavior governed by its poles.
 
 2. **Time Delay**  
    A time delay is introduced, represented by the exponential term:
 
-   $$
-   e^{-s}
-   $$
+<div align="center">
+  <img src="https://latex.codecogs.com/png.latex?\dpi{150}e^{-s}&bg=FFFFFF" alt="Exponential formula"/>
+</div>
 
    Because directly simulating a pure delay is challenging, a first-order Padé approximation is used:
 
-   $$
-   e^{-s} \approx \frac{1 - \frac{s}{2}}{1 + \frac{s}{2}}
-   $$
+<div align="center">
+  <img src="https://latex.codecogs.com/png.latex?\dpi{150}e^{-s}\approx\frac{1-\frac{s}{2}}{1+\frac{s}{2}}&bg=FFFFFF" alt="Padé approximation formula"/>
+</div>
 
    This rational approximation allows MATLAB to simulate the system with delay.
 
 3. **Closed-Loop Feedback**  
    The open-loop system with delay is:
 
-   $$
-   G_{\text{delay}}(s) = G(s) \cdot e^{-s}
-   $$
+<div align="center">
+  <img src="https://latex.codecogs.com/png.latex?\dpi{150}G_{\text{delay}}(s)=G(s)\,e^{-s}&bg=FFFFFF" alt="G_delay formula"/>
+</div>
 
    With unity feedback, the closed-loop transfer function is obtained.
 
@@ -51,20 +53,20 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 1. **PID Controller Structure**  
    The PID controller is defined as:
 
-   $$
-   G_c(s) = K_p + \frac{K_i}{s} + K_d \, s
-   $$
+<div align="center">
+  <img src="https://latex.codecogs.com/png.latex?\dpi{150}G_c(s)=K_p+\frac{K_i}{s}+K_d\,s&bg=FFFFFF" alt="PID controller formula"/>
+</div>
 
-   where \( K_p \), \( K_i \), and \( K_d \) are the proportional, integral, and derivative gains, respectively.
+   where \(K_p\), \(K_i\), and \(K_d\) are the proportional, integral, and derivative gains, respectively.
 
 2. **ITAE (Integral of Time-weighted Absolute Error)**  
    The ITAE criterion is used to evaluate the closed-loop performance:
 
-   $$
-   \text{ITAE} = \int_{0}^{T} t \, \bigl| e(t) \bigr| \, dt
-   $$
+<div align="center">
+  <img src="https://latex.codecogs.com/png.latex?\dpi{150}\text{ITAE}=\int_{0}^{T}t\,\bigl|e(t)\bigr|\,dt&bg=FFFFFF" alt="ITAE formula"/>
+</div>
 
-   where \( e(t) \) is the error between the reference input and the system output. Minimizing ITAE typically results in faster settling times and reduced overshoot.
+   where \(e(t)\) is the error between the reference input and the system output. Minimizing ITAE typically results in faster settling times and reduced overshoot.
 
 ---
 
@@ -75,12 +77,12 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 2. **ACO Parameters**  
    - **Number of Ants (N):** Determines how many candidate solutions are sampled per iteration.  
-   - **Pheromone Decay Factor (\(\phi\)):** Controls how quickly pheromone trails evaporate.  
+   - **Pheromone Decay Factor (\( \phi \)):** Controls how quickly pheromone trails evaporate.  
    - **Scaling Factor (Sca_fact):** Scales the pheromone update based on the best solution in each iteration.  
    - **Search Space (a, b, h_size):** Defines the range of possible PID gains (from 0 to 1000 in steps of 5).
 
 3. **ACO Main Loop**  
-   - **Initialization:** Discretize the PID gains \( K_p \), \( K_i \), and \( K_d \) into candidate values, each starting with a uniform pheromone level.  
+   - **Initialization:** Discretize the PID gains \(K_p\), \(K_i\), and \(K_d\) into candidate values, each starting with a uniform pheromone level.  
    - **Probability Calculation:** For each candidate value, compute the selection probability proportional to its pheromone level.  
    - **Roulette-Wheel Selection:** Each ant selects candidate gains based on the computed probability distribution.  
    - **Objective Function Evaluation:** Simulate the closed-loop system using the selected PID gains and compute the ITAE.  
@@ -94,13 +96,13 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 ## **5. Code Structure**
 
 1. **System Setup:**  
-   - Define the transfer function \( G(s) \).  
+   - Define the transfer function \(G(s)\).  
    - Apply the Padé approximation for the delay.  
    - Plot the **Step Response of the Original System with Delay** (Figure 1).
 
 2. **ACO Initialization:**  
    - Set the number of ants, pheromone decay factor, scaling factor, and number of iterations.  
-   - Define the search space for \( K_p \), \( K_i \), and \( K_d \).  
+   - Define the search space for \(K_p\), \(K_i\), and \(K_d\).  
    - Initialize the pheromone matrices.
 
 3. **Main ACO Loop:**  
@@ -167,7 +169,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 - A high initial ITAE value decreases steadily as the algorithm converges toward optimal PID gains.  
 - The plateau at the end indicates that near-optimal gains have been achieved.
 
-**Interpretation:***
+**Interpretation:**  
 - The decreasing ITAE trend confirms the effectiveness of the ACO method in optimizing the PID controller.
 
 ---
