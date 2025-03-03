@@ -17,7 +17,9 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
    We begin with a simple second-order transfer function:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.latex?\dpi{150}G(s)=\frac{1}{s^2+2s+3}&bg=FFFFFF" alt="G(s) formula"/>
+  <img src="https://quicklatex.com/latex3.f/quicklatex.com-a2cbe0d2d34b42ef7efef21cc2209496_l3.png"
+       alt="Example Formula"
+       width="70%">
 </div>
 
    This system is stable but exhibits transient behavior governed by its poles.
