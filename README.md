@@ -4,14 +4,14 @@
 
 ---
 
-## **1. Introduction**
+### **1. Introduction**
 This project focuses on designing and tuning a Proportional–Integral–Derivative (PID) controller using Ant Colony Optimization (ACO) for a time-delayed system. The main objective is to minimize the Integral of Time-weighted Absolute Error (ITAE), achieving a desirable transient response with reduced overshoot, faster settling time, and minimal steady-state error.
 
 Time delays and complex system dynamics can complicate PID tuning. Traditional methods may fall short in such cases. ACO provides a robust, stochastic optimization approach to iteratively refine PID gains and achieve superior closed-loop performance.
 
 ---
 
-## **2. System Definition and Delay Modeling**
+### **2. System Definition and Delay Modeling**
 
 1. **Plant Transfer Function**  
    We begin with a simple second-order transfer function:
@@ -50,7 +50,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ---
 
-## **3. PID Controller and Control Objective**
+### **3. PID Controller and Control Objective**
 
 1. **PID Controller Structure**  
    The PID controller is defined as:
@@ -72,7 +72,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ---
 
-## **4. Ant Colony Optimization (ACO)**
+### **4. Ant Colony Optimization (ACO)**
 
 1. **ACO Inspiration**  
    ACO is inspired by the foraging behavior of ants. Ants deposit pheromones on promising paths that guide others toward optimal routes. This mechanism is used to find the optimal PID gains.
@@ -95,7 +95,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ---
 
-## **5. Code Structure**
+### **5. Code Structure**
 
 1. **System Setup:**  
    - Define the transfer function \(G(s)\).  
@@ -120,7 +120,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ---
 
-## **6. Results and Figures**
+### **6. Results and Figures**
 
 ### **Figure 1: Step Response of Original System with Delay**
 
@@ -176,7 +176,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ---
 
-## **7. Why We Use These Methods**
+### **7. Why We Use These Methods**
 
 1. **Time-Delayed Systems:**  
    - Delays such as transport delays and sensor lags are common in practical systems.  
@@ -193,7 +193,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ---
 
-## **8. How to Run the Code**
+### **8. How to Run the Code**
 
 1. **Prerequisites:**  
    - MATLAB (with the Control System Toolbox).  
@@ -215,7 +215,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 ---
 
-## **9. Conclusion**
+### **9. Conclusion**
 This project demonstrates how **Ant Colony Optimization** can be effectively applied to tune a **PID controller** for a **time-delayed second-order system**. By minimizing the **ITAE** criterion, the optimized controller significantly enhances the closed-loop performance—achieving fast settling times, reduced overshoot, and improved stability.
 
 The results are summarized by:
