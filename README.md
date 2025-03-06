@@ -104,7 +104,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 2. **ACO Initialization:**  
    - Set the number of ants, pheromone decay factor, scaling factor, and number of iterations.  
-   - Define the search space for \(K_p\), \(K_i\), and \(K_d\).  
+   - Define the search space for `\(K_p\)`, `\(K_i\)`, and `\(K_d\)`.  
    - Initialize the pheromone matrices.
 
 3. **Main ACO Loop:**  
