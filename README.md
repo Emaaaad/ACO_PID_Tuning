@@ -79,7 +79,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 2. **ACO Parameters**  
    - **Number of Ants (N):** Determines how many candidate solutions are sampled per iteration.  
-   - **Pheromone Decay Factor *`phi`*:** Controls how quickly pheromone trails evaporate.  
+   - **Pheromone Decay Factor *`Phi`*:** Controls how quickly pheromone trails evaporate.  
    - **Scaling Factor (Sca_fact):** Scales the pheromone update based on the best solution in each iteration.  
    - **Search Space (*`a`*, *`b`*, *`h_size`*):** Defines the range of possible PID gains (from 0 to 1000 in steps of 5).
 
