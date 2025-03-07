@@ -59,7 +59,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
   <img src="https://latex.codecogs.com/png.latex?\dpi{150}G_c(s)=K_p+\frac{K_i}{s}+K_d\,s&bg=FFFFFF" alt="PID controller formula"/>
 </div>
 
-   where \(K_p\), \(K_i\), and \(K_d\) are the proportional, integral, and derivative gains, respectively.
+   where *`K(p)`*, *`K(i)`*, and *`K(d)`* are the proportional, integral, and derivative gains, respectively.
 
 2. **ITAE (Integral of Time-weighted Absolute Error)**  
    The ITAE criterion is used to evaluate the closed-loop performance:
@@ -79,12 +79,12 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 2. **ACO Parameters**  
    - **Number of Ants (N):** Determines how many candidate solutions are sampled per iteration.  
-   - **Pheromone Decay Factor (\( \phi \)):** Controls how quickly pheromone trails evaporate.  
+   - **Pheromone Decay Factor *`phi`*:** Controls how quickly pheromone trails evaporate.  
    - **Scaling Factor (Sca_fact):** Scales the pheromone update based on the best solution in each iteration.  
-   - **Search Space (`a`, `b`, `h_size`):** Defines the range of possible PID gains (from 0 to 1000 in steps of 5).
+   - **Search Space (*`a`*, *`b`*, *`h_size`*):** Defines the range of possible PID gains (from 0 to 1000 in steps of 5).
 
 3. **ACO Main Loop**  
-   - **Initialization:** Discretize the PID gains `K(p)`, `K(i)`, and `K(d)` into candidate values, each starting with a uniform pheromone level.  
+   - **Initialization:** Discretize the PID gains *`K(p)`*, *`K(i)`*, and *`K(d)`* into candidate values, each starting with a uniform pheromone level.  
    - **Probability Calculation:** For each candidate value, compute the selection probability proportional to its pheromone level.  
    - **Roulette-Wheel Selection:** Each ant selects candidate gains based on the computed probability distribution.  
    - **Objective Function Evaluation:** Simulate the closed-loop system using the selected PID gains and compute the ITAE.  
@@ -98,13 +98,13 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 ### **5. Code Structure**
 
 1. **System Setup:**  
-   - Define the transfer function `G(s)`.  
+   - Define the transfer function *`G(s)`*.  
    - Apply the Padé approximation for the delay.  
    - Plot the **Step Response of the Original System with Delay** (Figure 1).
 
 2. **ACO Initialization:**  
    - Set the number of ants, pheromone decay factor, scaling factor, and number of iterations.  
-   - Define the search space for `K(p)`, `K(i)`, and `K(d)`.  
+   - Define the search space for *`K(p)`*, *`K(i)`*, and *`K(d)`*.  
    - Initialize the pheromone matrices.
 
 3. **Main ACO Loop:**  
