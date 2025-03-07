@@ -68,7 +68,7 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
   <img src="https://latex.codecogs.com/png.latex?\dpi{150}\text{ITAE}=\int_{0}^{T}t\,\bigl|e(t)\bigr|\,dt&bg=FFFFFF" alt="ITAE formula"/>
 </div>
 
-   where `e(t)` is the error between the reference input and the system output. Minimizing ITAE typically results in faster settling times and reduced overshoot.
+   where *`e(t)`* is the error between the reference input and the system output. Minimizing ITAE typically results in faster settling times and reduced overshoot.
 
 ---
 
