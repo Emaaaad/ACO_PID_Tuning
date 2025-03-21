@@ -54,14 +54,12 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
 1. **PID Controller Structure**  
    The PID controller is defined as:
-
-<div align="center">
-  <img src="https://latex.codecogs.com/png.latex?\dpi{150}G_c(s)=K_p+\frac{K_i}{s}+K_d\,s&bg=FFFFFF" alt="PID controller formula"/>
-</div>
+   
+$ u(t) = K_p e(t) + K_i \int e(t) dt + K_d \frac{de(t)}{dt} $
 
    where *`K(p)`*, *`K(i)`*, and *`K(d)`* are the proportional, integral, and derivative gains, respectively.
 
-2. **ITAE (Integral of Time-weighted Absolute Error)**  
+3. **ITAE (Integral of Time-weighted Absolute Error)**  
    The ITAE criterion is used to evaluate the closed-loop performance:
 
 <div align="center">
