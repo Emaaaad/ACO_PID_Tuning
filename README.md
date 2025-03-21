@@ -55,7 +55,9 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 1. **PID Controller Structure**  
    The PID controller is defined as:
    
-$ u(t) = K_p e(t) + K_i \int e(t) dt + K_d \frac{de(t)}{dt} $
+$ 
+u(t) = K_p e(t) + K_i \int e(t) dt + K_d \frac{de(t)}{dt} 
+$
 
    where *`K(p)`*, *`K(i)`*, and *`K(d)`* are the proportional, integral, and derivative gains, respectively.
 
