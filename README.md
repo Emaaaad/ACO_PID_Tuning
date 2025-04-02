@@ -8,7 +8,6 @@ This project focuses on designing and tuning a Proportional–Integral–Derivat
 
 Time delays and complex system dynamics can complicate PID tuning. Traditional methods may fall short in such cases. ACO provides a robust, stochastic optimization approach to iteratively refine PID gains and achieve superior closed-loop performance.
 
----
 
 ### **2. System Definition and Delay Modeling**
 
@@ -47,7 +46,6 @@ Time delays and complex system dynamics can complicate PID tuning. Traditional m
 
    With unity feedback, the closed-loop transfer function is obtained.
 
----
 
 ### **3. PID Controller and Control Objective**
 
@@ -69,7 +67,6 @@ $
 
    where *`e(t)`* is the error between the reference input and the system output. Minimizing ITAE typically results in faster settling times and reduced overshoot.
 
----
 
 ### **4. Ant Colony Optimization (ACO)**
 
@@ -92,7 +89,6 @@ $
      - Evaporate the pheromone on other candidate values.  
    - **Convergence:** The pheromone distribution converges toward the optimal PID gains over iterations.
 
----
 
 ### **5. Code Structure**
 
@@ -137,7 +133,6 @@ $
 **Interpretation:**  
 - The natural system suffers from poor damping, motivating the application of PID tuning to improve performance.
 
----
 
 ### **Figure 2: Step Response with Optimized PID Controller**
 
@@ -155,7 +150,6 @@ $
 **Interpretation:**  
 - The optimized controller enables the system to track the desired reference input effectively with an improved transient response.
 
----
 
 ### **Figure 3: ITAE with Each Iteration**
 
@@ -173,7 +167,6 @@ $
 **Interpretation:**  
 - The decreasing ITAE trend confirms the effectiveness of the ACO method in optimizing the PID controller.
 
----
 
 ### **7. Why We Use These Methods**
 
@@ -190,7 +183,6 @@ $
    - Emphasizes both the magnitude and duration of error, promoting fast error reduction.  
    - Typically results in controllers that achieve a fast, stable response with minimal overshoot.
 
----
 
 ### **8. How to Run the Code**
 
@@ -212,7 +204,6 @@ $
    - Adjust the search space parameters (lower bound, upper bound, step size) to refine PID tuning.  
    - Consider exploring alternative objective functions or constraints based on your specific application.
 
----
 
 ### **9. Conclusion**
 This project demonstrates how **Ant Colony Optimization** can be effectively applied to tune a **PID controller** for a **time-delayed second-order system**. By minimizing the **ITAE** criterion, the optimized controller significantly enhances the closed-loop performance—achieving fast settling times, reduced overshoot, and improved stability.
