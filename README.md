@@ -2,7 +2,6 @@
 
 **Note:** This project was my Bachelor thesis during my studies at Qazvin Azad University under the supervision of [Prof. Hamid Qadiri](https://scholar.google.com/citations?user=NFe6cnoAAAAJ&hl=en).
 
----
 
 ### **1. Introduction**
 This project focuses on designing and tuning a Proportional–Integral–Derivative (PID) controller using Ant Colony Optimization (ACO) for a time-delayed system. The main objective is to minimize the Integral of Time-weighted Absolute Error (ITAE), achieving a desirable transient response with reduced overshoot, faster settling time, and minimal steady-state error.
